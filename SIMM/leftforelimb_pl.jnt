@@ -1,0 +1,362 @@
+/****************************************************/
+/* Output joint file made by SIMM 7.0      */
+/* Name of input joint file: Y:\users\philiplai\Massetognathus pascuali\For SIMM\leftforelimb_pl.jnt              */
+/****************************************************/
+
+name Left Forelimb
+
+muscle_file leftforelimb_pl.msl
+read_script_file no
+write_script_file no
+masscenter_visibility off
+inertia_visibility off
+crosshair_visibility off
+muscle_point_visibility off
+shadow_visibility off
+marker_visibility on
+force_units N
+length_units m
+gravity -Y
+motion_speed 100.000000
+solver_accuracy 0.000100
+solver_max_iterations 100
+solver_joint_limits yes
+solver_fg_contact no
+/* Window position is relative to the top left corner of the main
+ * SIMM window, with X going to the right, and Y going down.
+ */
+window_position 795 22
+window_size 1072 788
+
+
+/*********************************************/
+/*          DYNAMIC PREFERENCES              */
+/*********************************************/
+
+/*********************************************/
+/*               SEGMENTS                    */
+/*********************************************/
+
+beginsegment thorax
+endsegment
+
+beginsegment scapulocoracoid
+bone mesh_scapulocoracoid.obj purple_bone_scapulocoracoid
+endsegment
+
+beginsegment humerus
+bone mesh_humerus.obj purpley_bone_humerus
+endsegment
+
+beginsegment ulna
+bone mesh_ulna.obj blueish_bone_ulna
+begingroups antebrachium endgroups
+endsegment
+
+beginsegment radius
+bone mesh_radius.obj tealish_bone_radius
+begingroups antebrachium endgroups
+endsegment
+
+beginsegment carpus
+endsegment
+
+
+
+/*********************************************/
+/*                JOINTS                     */
+/*********************************************/
+
+beginjoint acromioclavicular
+segments thorax scapulocoracoid
+order t r3 r2 r1
+axis1 1.0000000000000000 0.0000000000000000 0.0000000000000000
+axis2 0.0000000000000000 1.0000000000000000 0.0000000000000000
+axis3 0.0000000000000000 0.0000000000000000 1.0000000000000000
+tx  constant 0.000000
+ty  constant 0.000000
+tz  constant 0.000000
+r1  constant 0.000000
+r2  constant 0.000000
+r3  constant 0.000000
+endjoint
+
+beginjoint glenoid
+segments scapulocoracoid humerus
+order t r3 r2 r1
+axis1 0.7071067811865476 0.7071067811865476 0.0000000000000000
+axis2 -0.7071067811865476 0.7071067811865476 0.0000000000000000
+axis3 0.0000000000000000 0.0000000000000000 1.0000000000000000
+tx  constant 0.000000
+ty  constant 0.000000
+tz  constant 0.000000
+r1  function f0(glenoid_prosup)
+r2  function f1(glenoid_addabd)
+r3  function f2(glenoid_retpro)
+endjoint
+
+beginjoint humeroulnar
+segments humerus ulna
+order t r3 r2 r1
+axis1 0.7071067811865476 0.7071067811865476 0.0000000000000000
+axis2 -0.7071067811865476 0.7071067811865476 0.0000000000000000
+axis3 0.0000000000000000 0.0000000000000000 1.0000000000000000
+tx  constant 1.316900
+ty  constant 1.328200
+tz  constant 0.015800
+r1  function f3(humeroulnar_retpro)
+r2  function f4(humeroulnar_fleext)
+r3  function f5(humeroulnar_lar)
+endjoint
+
+beginjoint humeroradial
+segments humerus radius
+order t r3 r2 r1
+axis1 0.7071067811865476 0.7071067811865476 0.0000000000000000
+axis2 -0.7071067811865476 0.7071067811865476 0.0000000000000000
+axis3 0.0000000000000000 0.0000000000000000 1.0000000000000000
+tx  constant 1.457600
+ty  constant 1.189100
+tz  constant 0.011500
+r1  function f6(humeroradial_retpro)
+r2  function f7(humeroradial_fleext)
+r3  function f8(humeroradial_lar)
+endjoint
+
+beginjoint radiocarpal
+segments radius carpus
+order t r3 r2 r1
+axis1 1.0000000000000000 0.0000000000000000 0.0000000000000000
+axis2 0.0000000000000000 1.0000000000000000 0.0000000000000000
+axis3 0.0000000000000000 0.0000000000000000 1.0000000000000000
+tx  constant 0.000000
+ty  constant 0.000000
+tz  constant 0.000000
+r1  constant 0.000000
+r2  constant 0.000000
+r3  constant 0.000000
+endjoint
+
+
+
+/*********************************************/
+/*              GENCOORDS                    */
+/*********************************************/
+
+begingencoord glenoid_prosup
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord glenoid_addabd
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord glenoid_retpro
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord humeroulnar_retpro
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord humeroulnar_fleext
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord humeroulnar_lar
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord humeroradial_retpro
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord humeroradial_fleext
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+begingencoord humeroradial_lar
+range -45.000000 45.000000
+visible yes
+endgencoord
+
+
+
+/*********************************************/
+/*             MODEL POSES                   */
+/*********************************************/
+
+beginpose default
+gencoord glenoid_prosup 0.000000 0.000000 clamped unlocked
+gencoord glenoid_addabd 0.000000 0.000000 clamped unlocked
+gencoord glenoid_retpro 0.000000 0.000000 clamped unlocked
+gencoord humeroulnar_retpro 0.000000 0.000000 clamped unlocked
+gencoord humeroulnar_fleext 0.000000 0.000000 clamped unlocked
+gencoord humeroulnar_lar 0.000000 0.000000 clamped unlocked
+gencoord humeroradial_retpro 0.000000 0.000000 clamped unlocked
+gencoord humeroradial_fleext 0.000000 0.000000 clamped unlocked
+gencoord humeroradial_lar 0.000000 0.000000 clamped unlocked
+muscle Pectoralis 1.000000 on
+muscle Infraspinatus(superior) 1.000000 on
+muscle Infraspinatus(inferior) 1.000000 on
+muscle Infraspinatus(intermediate) 1.000000 on
+muscle Supraspinatus 1.000000 on
+endpose
+
+
+
+/*********************************************/
+/*               FUNCTIONS                   */
+/*********************************************/
+
+beginnaturalcubicspline f0
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f1
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f2
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f3
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f4
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f5
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f6
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f7
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+beginnaturalcubicspline f8
+( -45.000000, -45.000000)
+(  45.000000,  45.000000)
+endnaturalcubicspline
+
+/*********************************************/
+/*          MATERIALS AND COLORS             */
+/*********************************************/
+
+beginmaterial purple_bone_scapulocoracoid
+ambient 0.5000 0.2500 1.0000
+diffuse 0.2500 0.1250 0.5000
+specular 0.3000 0.1750 0.5500
+shininess 10.0000
+endmaterial
+
+beginmaterial purpley_bone_humerus
+ambient 0.3400 0.4000 1.0000
+diffuse 0.1700 0.2000 0.5000
+specular 0.2200 0.2500 0.5500
+shininess 10.0000
+endmaterial
+
+beginmaterial blueish_bone_ulna
+ambient 0.2400 0.5000 0.9000
+diffuse 0.1200 0.2500 0.4500
+specular 0.1700 0.3000 0.5000
+shininess 10.0000
+endmaterial
+
+beginmaterial tealish_bone_radius
+ambient 0.2400 0.8000 0.9000
+diffuse 0.1200 0.4000 0.4500
+specular 0.1700 0.4500 0.5000
+shininess 10.0000
+endmaterial
+
+
+/*********************************************/
+/*              MOTIONOBJECTS                 */
+/*********************************************/
+
+
+/*********************************************/
+/*              CAMERAS                      */
+/*********************************************/
+
+begincamera default
+0.0000 0.0000 1.0000 0.0000 
+1.0000 0.0000 0.0000 0.0000 
+0.0000 1.0000 0.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+begincamera Lateral
+0.0000 0.0000 1.0000 0.0000 
+1.0000 0.0000 0.0000 0.0000 
+0.0000 1.0000 0.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+begincamera Medial
+0.0000 0.0000 -1.0000 0.0000 
+-1.0000 0.0000 0.0000 0.0000 
+0.0000 1.0000 0.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+begincamera Anterior
+1.0000 0.0000 0.0000 0.0000 
+0.0000 0.0000 -1.0000 0.0000 
+0.0000 1.0000 0.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+begincamera Posterior
+-1.0000 0.0000 0.0000 0.0000 
+0.0000 0.0000 1.0000 0.0000 
+0.0000 1.0000 0.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+begincamera Dorsal
+-1.0000 0.0000 0.0000 0.0000 
+0.0000 -1.0000 0.0000 0.0000 
+0.0000 0.0000 1.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+begincamera Ventral
+-1.0000 0.0000 0.0000 0.0000 
+0.0000 1.0000 0.0000 0.0000 
+0.0000 0.0000 -1.0000 0.0000 
+-0.7943 0.2173 -7.5201 1.0000 
+endcamera
+
+/*********************************************/
+/*          CONTACT DETECTION INFO           */
+/*********************************************/
+
+begincontact
+endcontact
+

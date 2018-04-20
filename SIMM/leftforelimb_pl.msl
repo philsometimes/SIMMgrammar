@@ -1,0 +1,103 @@
+/****************************************************/
+/* Output muscle file made by SIMM 7.0     */
+/* Name of input muscle file: leftforelimb_pl.msl             */
+/****************************************************/
+
+
+beginmuscle defaultmuscle
+visible yes
+endmuscle
+
+
+beginmuscle Pectoralis
+beginpoints
+-1.00000  0.00000 -0.80000 segment thorax
+ 0.24000  0.10000 -0.50000 segment humerus
+endpoints
+endmuscle
+
+beginmuscle Infraspinatus(superior)
+beginpoints
+-0.29300 -0.46000  1.19500 segment scapulocoracoid
+ 0.06000 -0.15000 -0.12000 segment humerus
+endpoints
+begingroups
+Infraspinatus 
+endgroups
+endmuscle
+
+beginmuscle Infraspinatus(inferior)
+beginpoints
+-0.04300 -0.25000  0.50000 segment scapulocoracoid
+ 0.06000 -0.15000 -0.12000 segment humerus
+endpoints
+begingroups
+Infraspinatus 
+endgroups
+endmuscle
+
+beginmuscle Infraspinatus(intermediate)
+beginpoints
+-0.13200 -0.36500  0.87000 segment scapulocoracoid
+ 0.06000 -0.15000 -0.12000 segment humerus
+endpoints
+begingroups
+Infraspinatus 
+endgroups
+endmuscle
+
+beginmuscle Supraspinatus
+beginpoints
+-0.15300 -0.32800  0.28000 segment scapulocoracoid
+ 0.06000 -0.15000 -0.12000 segment humerus
+endpoints
+endmuscle
+
+beginmuscle Subscapularis(inferior)
+beginpoints
+-0.12000 -0.17500  0.54000 segment scapulocoracoid
+-0.18000  0.32000  0.04500 segment humerus
+endpoints
+begingroups
+Subscapularis 
+endgroups
+endmuscle
+
+beginmuscle Subscapularis(intermediate)
+beginpoints
+-0.19200 -0.31000  0.87000 segment scapulocoracoid
+-0.18000  0.32000  0.04500 segment humerus
+endpoints
+begingroups
+Subscapularis 
+endgroups
+endmuscle
+
+beginmuscle Subscapularis(superior)
+beginpoints
+-0.32500 -0.45000  1.19500 segment scapulocoracoid
+-0.18000  0.32000  0.04500 segment humerus
+endpoints
+begingroups
+Subscapularis 
+endgroups
+endmuscle
+
+beginmuscle Teres_major
+beginpoints
+-0.22000 -0.35000  1.23000 segment scapulocoracoid
+ 0.26000  0.41000 -0.08000 segment humerus
+endpoints
+endmuscle
+
+beginmuscle Teres_minor
+beginpoints
+ 0.01000 -0.12000  0.27000 segment scapulocoracoid
+ 0.21000  0.07000 -0.13000 segment humerus
+endpoints
+endmuscle
+
+/*********************************************/
+/*               FUNCTIONS                   */
+/*********************************************/
+
